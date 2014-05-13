@@ -19,9 +19,9 @@ var gulp = require('gulp');
 
 gulp.task('styles', function() {
   gulp
-    .src(['client/modules/base/reset.css', 
-      'client/modules/base/!(reset)*.css', 
-      'client/modules/!(base)**/*.css'
+    .src(['client/modules/index/reset.css', 
+      'client/modules/index/!(reset)*.css', 
+      'client/modules/!(index)**/*.css'
     ])
     .pipe(myth())
     .pipe(concat('build.css'))
@@ -34,7 +34,7 @@ gulp.task('styles', function() {
 
 gulp.task('modules', function() {
   gulp
-    .src('client/modules/index.js')
+    .src('client/modules/index/index.js')
     .pipe(browserify({buffer: false, debug: true}))
     .pipe(rename('build.js'))
     .pipe(gulp.dest('build/'));
